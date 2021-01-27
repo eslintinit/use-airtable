@@ -13,14 +13,16 @@ npm install --save use-airtable
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import { useAirtable } from 'use-airtable'
 
-import { useMyHook } from 'use-airtable'
+const TodoList = () => {
+  const [records, createRecord, updateRecord, deleteRecord] = useAirtable('Tasks', AIRTABLE_API_KEY, TABLE_BASE_ID)
 
-const Example = () => {
-  const example = useMyHook()
   return (
-    <div>{example}</div>
+    <div>
+      {records.map(record => <span>{record.fields.Name}</span>)}
+      <button onClick={() => createRecord({ Name: 'New record' })}>Add record</button>
+    </div>
   )
 }
 ```

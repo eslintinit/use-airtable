@@ -22,6 +22,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
+    "airtable": "^0.10.1",
     "react": "^16.9.0"
   },
   "devDependencies": {
@@ -66,5 +67,10 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-url": "^2.1.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "none"
   }
 }

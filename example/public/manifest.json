@@ -1,0 +1,8 @@
+{
+  "short_name": "use-airtable",
+  "name": "use-airtable",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

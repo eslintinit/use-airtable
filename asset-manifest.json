@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/use-airtable/static/css/main.2c6a48fe.chunk.css",
+    "main.js": "/use-airtable/static/js/main.196efea1.chunk.js",
+    "main.js.map": "/use-airtable/static/js/main.196efea1.chunk.js.map",
+    "runtime-main.js": "/use-airtable/static/js/runtime-main.00ce6e52.js",
+    "runtime-main.js.map": "/use-airtable/static/js/runtime-main.00ce6e52.js.map",
+    "static/js/2.cc5ba809.chunk.js": "/use-airtable/static/js/2.cc5ba809.chunk.js",
+    "static/js/2.cc5ba809.chunk.js.map": "/use-airtable/static/js/2.cc5ba809.chunk.js.map",
+    "index.html": "/use-airtable/index.html",
+    "precache-manifest.f83c15e66700645e29b708ce0710abe2.js": "/use-airtable/precache-manifest.f83c15e66700645e29b708ce0710abe2.js",
+    "service-worker.js": "/use-airtable/service-worker.js",
+    "static/css/main.2c6a48fe.chunk.css.map": "/use-airtable/static/css/main.2c6a48fe.chunk.css.map",
+    "static/js/2.cc5ba809.chunk.js.LICENSE.txt": "/use-airtable/static/js/2.cc5ba809.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.00ce6e52.js",
+    "static/js/2.cc5ba809.chunk.js",
+    "static/css/main.2c6a48fe.chunk.css",
+    "static/js/main.196efea1.chunk.js"
+  ]
+}

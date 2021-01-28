@@ -1,10 +1,13 @@
 {
   "name": "use-airtable",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Airtable CRUD to be used in react components",
   "author": "ignatif",
   "license": "MIT",
-  "repository": "ignatif/use-airtable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ignatif/use-airtable.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -72,5 +75,18 @@
     "singleQuote": true,
     "semi": false,
     "trailingComma": "none"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ignatif/use-airtable/issues"
+  },
+  "homepage": "https://github.com/ignatif/use-airtable#readme",
+  "directories": {
+    "example": "example"
+  },
+  "keywords": [
+    "Airtable",
+    "React",
+    "hook",
+    "CRUD"
+  ]
 }

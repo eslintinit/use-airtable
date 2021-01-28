@@ -27,6 +27,23 @@ const TodoList = () => {
 }
 ```
 
+
+### Update
+
+```jsx
+<button onClick={() => updateRecord(record.id, { Status: 'In progress' })}>
+  Update
+</button>
+```
+
+### Delete
+
+```jsx
+<button onClick={() => deleteRecord(record.id)}>
+  Delete
+</button>
+```
+
 ## License
 
 MIT © [ignatif](https://github.com/ignatif)

@@ -4,10 +4,12 @@
 
 [![NPM](https://img.shields.io/npm/v/use-airtable.svg)](https://www.npmjs.com/package/use-airtable) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+[Demo](https://ignatif.github.io/use-airtable/)
+
 ## Install
 
 ```bash
-npm install --save use-airtable
+npm install --save airtable use-airtable
 ```
 
 ## Usage
@@ -16,17 +18,24 @@ npm install --save use-airtable
 import { useAirtable } from 'use-airtable'
 
 const TodoList = () => {
-  const [records, createRecord, updateRecord, deleteRecord] = useAirtable('Tasks', AIRTABLE_API_KEY, TABLE_BASE_ID)
+  const [records, createRecord, updateRecord, deleteRecord] = useAirtable(
+    'Tasks',
+    AIRTABLE_API_KEY,
+    TABLE_BASE_ID
+  )
 
   return (
     <div>
-      {records.map(record => <span>{record.fields.Name}</span>)}
-      <button onClick={() => createRecord({ Name: 'New record' })}>Add record</button>
+      {records.map((record) => (
+        <span>{record.fields.Name}</span>
+      ))}
+      <button onClick={() => createRecord({ Name: 'New record' })}>
+        Add record
+      </button>
     </div>
   )
 }
 ```
-
 
 ### Update
 
@@ -39,9 +48,7 @@ const TodoList = () => {
 ### Delete
 
 ```jsx
-<button onClick={() => deleteRecord(record.id)}>
-  Delete
-</button>
+<button onClick={() => deleteRecord(record.id)}>Delete</button>
 ```
 
 ## License

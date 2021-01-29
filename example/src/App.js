@@ -15,20 +15,14 @@ const App = () => {
     <div>
       <div>
         {records.map((record) => (
-          <div>
+          <div key={record.id}>
             {`${record.fields.Status}: ${record.fields.Name}`}
             <button
               onClick={() => updateRecord(record.id, { Status: 'In progress' })}
-              style={{ marginLeft: 8, color: '#435090' }}
             >
               update
             </button>
-            <button
-              onClick={() => deleteRecord(record.id)}
-              style={{ marginLeft: 8, color: '#d43636' }}
-            >
-              delete
-            </button>
+            <button onClick={() => deleteRecord(record.id)}>delete</button>
           </div>
         ))}
       </div>

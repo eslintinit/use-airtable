@@ -1,6 +1,5 @@
+import Airtable from 'airtable'
 import { useState, useEffect } from 'react'
-
-const Airtable = require('airtable')
 
 export const useAirtable = (tableName, apiKey, baseId) => {
   const [records, setRecords] = useState([])
@@ -9,22 +8,12 @@ export const useAirtable = (tableName, apiKey, baseId) => {
   const getRecords = () => {
     base('Tasks')
       .select({
-        // Selecting the first 3 records in Grid view:
-        // maxRecords: 3,
         view: 'Grid view'
       })
       .eachPage(
-        function page(records, fetchNextPage) {
+        function page(fetchedRecords, fetchNextPage) {
           // This function (`page`) will get called for each page of records.
-
-          setRecords(records)
-          records.forEach(function (record) {
-            console.log('Retrieved', record.get('Name'))
-          })
-
-          // To fetch the next page of records, call `fetchNextPage`.
-          // If there are more records, `page` will get called again.
-          // If there are no more records, `done` will get called.
+          setRecords([...records, ...fetchedRecords])
           fetchNextPage()
         },
         function done(err) {
@@ -40,41 +29,58 @@ export const useAirtable = (tableName, apiKey, baseId) => {
   }, [])
 
   const createRecord = (fields) =>
-    base(tableName).create(fields, (err, record) => {
-      if (err) {
-        console.error(err)
-        return
-      }
-      console.log(record)
-    })
-
-  const updateRecord = (id, fields) => {
-    base('Tasks').update(
-      [
-        {
-          id,
-          fields
-        }
-      ],
-      function (err, records) {
+    new Promise((resolve, reject) => {
+      base(tableName).create(fields, (err, record) => {
         if (err) {
-          console.error(err)
+          reject(err)
           return
         }
-        records.forEach(function (record) {
-          console.log(record.get('Status'))
-        })
-      }
-    )
-  }
+
+        // on successful request -> update records state
+        setRecords([...records, record])
+        resolve(record)
+      })
+    })
+
+  const updateRecord = (recordId, fields) =>
+    new Promise((resolve, reject) => {
+      base('Tasks').update(
+        [
+          {
+            id: recordId,
+            fields
+          }
+        ],
+        function (err, updatedRecords) {
+          if (err) {
+            reject(err)
+            return
+          }
+          updatedRecords.forEach((updatedRecord) => {
+            // on successful request -> update records state
+            setRecords(
+              records.map((record) =>
+                record.id === recordId ? updatedRecord : record
+              )
+            )
+            resolve(updatedRecord)
+          })
+        }
+      )
+    })
 
   const deleteRecord = (recordId) =>
-    base('Tasks').destroy(recordId, function (err, deletedRecord) {
-      if (err) {
-        console.error(err)
-        return
-      }
-      console.log(deletedRecord)
+    new Promise((resolve, reject) => {
+      base('Tasks').destroy(recordId, (err, deletedRecord) => {
+        if (err) {
+          reject(err)
+          return
+        }
+
+        // on successful request -> update records state
+        setRecords(records.filter((record) => record.id !== recordId))
+        resolve()
+      })
     })
 
   return [records, createRecord, updateRecord, deleteRecord]

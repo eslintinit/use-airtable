@@ -1,6 +1,6 @@
 {
   "name": "use-airtable",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Airtable CRUD to be used in react components",
   "author": "ignatif",
   "license": "MIT",

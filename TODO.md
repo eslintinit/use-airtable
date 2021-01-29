@@ -1,0 +1,3 @@
+- write instructions on how to obtain API_KEY and BASE_URL
+- write example on how to use with promises
+- optimisic response? 🤔

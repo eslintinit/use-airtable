@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/use-airtable/precache-manifest.3fa34440c62f7b24d030866a305c8282.js"
+  "/use-airtable/precache-manifest.671e6abe2256829740405ee482722a52.js"
 );
 
 self.addEventListener('message', (event) => {

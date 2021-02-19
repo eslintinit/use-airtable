@@ -6,7 +6,7 @@ export const useAirtable = (tableName, apiKey, baseId) => {
   const base = new Airtable({ apiKey }).base(baseId)
 
   const getRecords = () => {
-    base('Tasks')
+    base(tableName)
       .select({
         view: 'Grid view'
       })

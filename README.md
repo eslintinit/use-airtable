@@ -19,7 +19,7 @@ import { useAirtable } from 'use-airtable'
 
 const TodoList = () => {
   const [records, createRecord, updateRecord, deleteRecord] = useAirtable(
-    'Tasks',
+    TABLE_NAME,
     AIRTABLE_API_KEY,
     TABLE_BASE_ID
   )
